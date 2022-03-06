@@ -16,7 +16,10 @@ jQuery(document).ready(function() {
 	    Countdown initializer
 	*/
 	var now = new Date();
-	var countTo = 90 * 24 * 60 * 60 * 1000 + now.valueOf();    
+    var date2 = new Date("06/20/2022");
+    var differenceInTime = date2.getTime() - now.getTime();
+    var differenceInDays = differenceInTime / (1000 * 3600 * 24);
+	var countTo = differenceInDays * 24 * 60 * 60 * 1000 + now.valueOf();    
 	$('.timer').countdown(countTo, function(event) {
 		$(this).find('.days').text(event.offset.totalDays);
 		$(this).find('.hours').text(event.offset.hours);
